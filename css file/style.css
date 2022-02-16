@@ -1,0 +1,19 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h2 {
+  color: rgb(0, 132, 255);
+}
+.back {
+  background-color: rgb(255, 230, 0);
+  border-radius: 20px;
+}
+.text-size {
+  font-size: small;
+}
+
+/* button {
+  position: relative;
+  left: 95px;
+} */

@@ -65,13 +65,13 @@ document.getElementById('save-btn').addEventListener('click', function(){
     const remainingBalance = document.getElementById('remaining-balance');
 
     // saving amount
-    savingAmount.innerText = income.value * saveInput / 100;
+    savingAmount.innerText = parseInt(income.value * saveInput / 100);
 
     // remaining balance
     remainingBalance.innerText = getSubtraction(parseInt(balance.innerText), parseInt(savingAmount.innerText));
-
+    debugger
     // validation
-    if (balance.innerText < savingAmount.innerText){
+    if (remainingBalance.innerText <= 0){
         alert("You cann't save this amount");
         return remainingBalance.innerText = "You cann't save this amount";
     };

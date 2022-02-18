@@ -4,8 +4,8 @@ function getNumberValue(inputField){
     const inpueText = document.getElementById(inputField);
     const inputNumber = parseInt(inpueText.value);
     
-    if (typeof inputNumber != "number"){
-        return alert("Please Enter any Number not Text");
+    if (isNaN(inputNumber)){
+        validation2(inputField);
     }
     else if (inputNumber < 0){
         validation(inputField);
@@ -13,19 +13,24 @@ function getNumberValue(inputField){
     return inputNumber;
 };
 
-// function 2
+//function 2
+function validation2(num2){
+    return alert("Please Enter any Number not Text in" + " " + num2);
+};
+
+// function 3
 function validation(num){
     return alert("Please Enter a Possitive Number in" + ' ' + num);
 };
 
-// function 3
+// function 4
 function getSubtraction(a, b){
     return a - b;
 };
 
 
 // calculate button
-document.getElementById('calculate').addEventListener('click', function(event){
+document.getElementById('calculate').addEventListener('click', function(){
 
     const income = getNumberValue('income');
     const food = getNumberValue('food');
@@ -50,6 +55,8 @@ document.getElementById('calculate').addEventListener('click', function(event){
 
 });
  
+
+
 // save click
 document.getElementById('save-btn').addEventListener('click', function(){
 
@@ -76,14 +83,14 @@ document.getElementById('save-btn').addEventListener('click', function(){
 // save input keyup
 const saveBtn = document.getElementById('save-btn');
 document.getElementById('save-input').addEventListener('keyup', function(event){
-    // console.log(event.target.value);
-    if (typeof event.target.value != "number"){
-        saveBtn.removeAttribute("disabled")
-
+    debugger
+    
+    if ( isNaN(event.target.value) || event.target.value.length == 0){
+        saveBtn.setAttribute("disabled", true);
     }
-    // else (event.target.value != "number"){
-    //     saveBtn.setAttribute("disabled", true);
-    // }
+    else {
+        saveBtn.removeAttribute("disabled");
+    }
 });
 
 
@@ -110,5 +117,5 @@ document.getElementById('clear').addEventListener('click', function(){
     document.getElementById('saving-amount').innerText = 0;
     document.getElementById('remaining-balance').innerText = 0;
     saveBtn.setAttribute("disabled", true);
-})
+});
 
